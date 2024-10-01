@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
-    @course.foods_courses.build.build_food
+    @course.foods_courses.build
   end
 
   # GET /courses/1/edit
@@ -59,19 +59,18 @@ class CoursesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_course
+    @course = Course.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def course_params
-      params.require(:course).permit(:nome, foods_attributes: %i[
-                                      id
-                                      nome
-                                      categoria
-                                      quantita
-                                      _destroy
-                                    ])
-    end
+  # Only allow a list of trusted parameters through.
+  def course_params
+    params.require(:course).permit(:nome, foods_attributes: %i[
+        id
+        nome
+        categoria
+        quantita
+      ])
+  end
 end

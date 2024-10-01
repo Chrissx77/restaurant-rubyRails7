@@ -1,0 +1,11 @@
+<% content_for :title, "New food" %>
+
+<h1>Aggiungi Ingrediente</h1>
+
+<%= render "form", food: @food %>
+
+<br>
+
+<div>
+  <%= link_to "Indietro", foods_path, class: "btn btn-dark" %>
+</div>

@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: 12345
+  host: localhost
+
+development:
+  <<: *default
+  database: restaurant_db_dev
+
+test:
+  <<: *default
+  database: restaurant_db_test
+
+production:
+  <<: *default
+  database: restaurant_db_prod
+  username: postgres
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

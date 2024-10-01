@@ -1,0 +1,15 @@
+<div class="row align-items-md-stretch mt-5">
+  <div class="col-12">
+    <div class="h-300 p-5 text-bg-dark rounded-3">
+      <h1><%= @food.nome %></h1>
+      <h5><%= @food.categoria %> | N°:  <%= @food.quantità %></h5>
+
+      <div class="pt-5">
+        <%= link_to "Modifica", edit_food_path(@food), :class => "btn btn-secondary" %>
+        <%= link_to "Indietro", foods_path, :class => "btn btn-secondary" %>
+      </div>
+
+    </div>
+  </div>
+</div>
+

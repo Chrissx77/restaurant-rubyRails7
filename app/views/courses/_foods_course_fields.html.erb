@@ -1,0 +1,5 @@
+<div class="nested-fields">
+  <%= f.input :food_id, collection: Food.pluck(:nome, :id), prompt: 'Seleziona un cibo' %>
+  <%= f.input :quantita %>
+  <%= link_to_remove_association "Rimuovi Ingrediente", f %>
+</div>

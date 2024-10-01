@@ -1,19 +1,23 @@
 <%= simple_form_for(@course) do |f| %>
   <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <div class="form-inputs">
     <%= f.input :nome %>
+  </div>
+
     <h3>Ingrediente</h3>
+
     <div id="tasks">
-      <%= f.simple_fields_for :foods do |food| %>
-        <%= render "courses/food_fields", f: food %>
+      <%= f.simple_fields_for :foods_courses do |fc| %>
+        <%= render 'foods_course_fields', f: fc %>
       <% end %>
       <div class="links">
-        <%= link_to_add_association "Aggiungi Ingrediente", f, :foods %>
+        <%= link_to_add_association "Aggiungi Ingrediente", f, :foods_courses %>
       </div>
     </div>
-  </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
 <% end %>

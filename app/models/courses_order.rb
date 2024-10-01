@@ -1,4 +1,4 @@
 class CoursesOrder < ApplicationRecord
-  belongs_to :orders
-  belongs_to :courses
+  belongs_to :order
+  belongs_to :course
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_27_151537) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_29_150358) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,13 +39,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_27_151537) do
   end
 
   create_table "foods_courses", force: :cascade do |t|
-    t.bigint "courses_id", null: false
-    t.bigint "foods_id", null: false
+    t.bigint "course_id", null: false
+    t.bigint "food_id", null: false
     t.integer "quantita"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["courses_id"], name: "index_foods_courses_on_courses_id"
-    t.index ["foods_id"], name: "index_foods_courses_on_foods_id"
+    t.index ["course_id"], name: "index_foods_courses_on_course_id"
+    t.index ["food_id"], name: "index_foods_courses_on_food_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_27_151537) do
 
   add_foreign_key "courses_orders", "courses", column: "courses_id"
   add_foreign_key "courses_orders", "orders", column: "orders_id"
-  add_foreign_key "foods_courses", "courses", column: "courses_id"
-  add_foreign_key "foods_courses", "foods", column: "foods_id"
+  add_foreign_key "foods_courses", "courses"
+  add_foreign_key "foods_courses", "foods"
   add_foreign_key "orders", "tables", column: "tables_id"
 end

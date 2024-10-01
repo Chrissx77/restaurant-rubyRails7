@@ -1,22 +1,19 @@
-<%= form_with(model: course) do |form| %>
-  <% if course.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
-
-      <ul>
-        <% course.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= simple_form_for(@course) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :nome %>
+    <h3>Ingrediente</h3>
+    <div id="tasks">
+      <%= f.simple_fields_for :foods do |food| %>
+        <%= render "food_fields", f: food %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association "Aggiungi Ingrediente", f, :foods %>
+      </div>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>

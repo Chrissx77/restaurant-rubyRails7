@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @course.foods_courses.build.build_food
   end
 
   # GET /courses/1/edit
@@ -65,6 +66,12 @@ class CoursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:nome)
+      params.require(:course).permit(:nome, foods_attributes: %i[
+                                      id
+                                      nome
+                                      categoria
+                                      quantita
+                                      _destroy
+                                    ])
     end
 end

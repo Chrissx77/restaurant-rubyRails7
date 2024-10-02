@@ -1,31 +1,33 @@
 <% content_for :title, "Foods" %>
 
-<h1>Ingredienti</h1>
+<div class="my-5">
+  <h1>Ingredienti</h1>
 
 
-<table class="table table-dark table-striped table-bordered table-hover">
-  <thead>
-  <tr>
-    <th scope="col">Nome</th>
-    <th scope="col">Categoria</th>
-    <th scope="col">Quantità/gr</th>
-    <th colspan="3"></th>
+  <table class="table table-dark table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Quantità/gr</th>
+      <th colspan="3"></th>
 
-  </tr>
-  </thead>
-  <tbody>
-  <% @foods.each do |food| %>
-  <tr>
-    <td><%= food.nome %></td>
-    <td><%= food.categoria %></td>
-    <td><%= food.quantità %></td>
-    <td><%= link_to "Mostra", food, :class=> "btn btn-secondary" %></td>
-    <td><%= link_to "Modifica", edit_food_path(food),:class=> "btn btn-secondary" %></td>
-    <td><%= button_to "Cancella", food, method: :delete, :class=> "btn btn-secondary" %></td>
-  </tr>
-  <% end %>
-  </tbody>
-</table>
+    </tr>
+    </thead>
+    <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.nome %></td>
+        <td><%= food.categoria %></td>
+        <td><%= food.quantità %></td>
+        <td><%= link_to "Mostra", food, :class=> "btn btn-secondary" %></td>
+        <td><%= link_to "Modifica", edit_food_path(food),:class=> "btn btn-secondary" %></td>
+        <td><%= button_to "Cancella", food, method: :delete, :class=> "btn btn-secondary" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 
 <%= link_to "Nuovo Ingrediente", new_food_path, :class => "btn btn-secondary" %>
 

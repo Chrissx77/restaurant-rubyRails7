@@ -1,17 +1,19 @@
 <div id="<%= dom_id food %>">
-  <p>
-    <strong>Nome:</strong>
-    <%= food.nome %>
-  </p>
+  <table class="table table-dark table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Categoria</th>
 
-  <p>
-    <strong>Categoria:</strong>
-    <%= food.categoria %>
-  </p>
 
-  <p>
-    <strong>Quantità:</strong>
-    <%= food.quantità %>
-  </p>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= food.nome %></td>
+        <td><%= food.categoria %></td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>

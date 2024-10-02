@@ -1,10 +1,13 @@
 <div id="<%= dom_id course %>">
-  <p>
-    <strong>Name:</strong>
-    <%= course.nome %>
-  </p>
-  <h3>Tasks</h3>
-  <div id="tasks">
+  <div class="my-3">
+    <h2> Nome: </h2>
+    <h5> <%= course.nome %> </h5>
+  </div>
+
+
+
+  <h3>Ingredienti</h3>
+  <div id="foods">
     <% course.foods.each do |food| %>
       <%= render partial: "foods/course_food", locals: { food: food } %>
     <% end %>

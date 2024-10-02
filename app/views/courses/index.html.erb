@@ -1,16 +1,21 @@
-<p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Courses" %>
 
-<h1>Courses</h1>
+<div class="mt-5">
+  <h1>Portate</h1>
 
-<div id="courses">
-  <% @courses.each do |course| %>
-    <%= render course %>
-    <p>
-      <%= link_to "Show this course", course %>
-    </p>
-  <% end %>
+  <div id="courses" class="my-5">
+    <% @courses.each do |course| %>
+      <%= render course %>
+      <p>
+        <%= link_to "Mostra Portata", course, :class=> "btn btn-secondary" %>
+      </p>
+    <% end %>
+  </div>
 </div>
 
-<%= link_to "New course", new_course_path %>
+<div class="d-flex justify-content-center">
+  <%= link_to "Nuova Portata", new_course_path, class: "btn btn-dark" %>
+</div>
+
+

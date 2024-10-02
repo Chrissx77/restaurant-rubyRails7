@@ -11,13 +11,13 @@
       <%= f.simple_fields_for :foods_courses do |fc| %>
         <%= render 'foods_course_fields', f: fc %>
       <% end %>
-      <div class="links">
-        <%= link_to_add_association "Aggiungi Ingrediente", f, :foods_courses %>
+      <div class="links my-2">
+        <%= link_to_add_association "Aggiungi Ingrediente", f, :foods_courses , :class=> "btn btn-secondary"%>
       </div>
     </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions mt-3">
+    <%= f.button :submit , :class=> "btn btn-secondary", value: "Crea Portata"%>
   </div>
 
 <% end %>

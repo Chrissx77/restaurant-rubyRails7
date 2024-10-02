@@ -26,6 +26,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
+        update_food_quantities(@course)  # Sottrae le quantità
         format.html { redirect_to @course, notice: "Course was successfully created." }
         format.json { render :show, status: :created, location: @course }
       else
@@ -39,6 +40,7 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
+        update_food_quantities(@course)  # Sottrae le quantità
         format.html { redirect_to @course, notice: "Course was successfully updated." }
         format.json { render :show, status: :ok, location: @course }
       else
@@ -59,6 +61,18 @@ class CoursesController < ApplicationController
   end
 
   private
+
+  def update_food_quantities(course)
+    course.foods_courses.each do |foods_course|
+      food = foods_course.food
+      if food.quantità >= foods_course.quantita
+        food.update(quantità: food.quantità - foods_course.quantita)
+      else
+        # Aggiungi una logica per gestire casi in cui la quantità non è sufficiente
+        raise "Quantità insufficiente per l'ingrediente #{food.nome}"
+      end
+    end
+  end
   # Use callbacks to share common setup or constraints between actions.
   def set_course
     @course = Course.find(params[:id])

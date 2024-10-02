@@ -1,11 +1,11 @@
 <% content_for :title, "New table" %>
 
-<h1>New table</h1>
+<div class="my-5">
+  <h1>Nuovo Tavolo</h1>
 
-<%= render "form", table: @table %>
-
-<br>
-
-<div>
-  <%= link_to "Back to tables", tables_path %>
+  <%= render "form", table: @table %>
+  <div class="mt-2">
+    <%= link_to "Indietro", tables_path, :class => "btn btn-secondary" %>
+  </div>
 </div>
+

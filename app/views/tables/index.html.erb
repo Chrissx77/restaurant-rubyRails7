@@ -18,7 +18,6 @@
       <td><%= table.numero %></td>
       <td><%= table.posti %></td>
       <td><%= link_to "Mostra", table, :class=> "btn btn-secondary" %></td>
-      <td><%= link_to "Modifica", edit_food_path(table),:class=> "btn btn-secondary" %></td>
       <td><%= button_to "Cancella", table, method: :delete, :class=> "btn btn-secondary" %></td>
     </tr>
   <% end %>

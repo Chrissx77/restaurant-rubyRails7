@@ -11,17 +11,15 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :numero, style: "display: block" %>
-    <%= form.number_field :numero %>
+  <div class="pb-3">
+    <%= form.text_field :numero, class: "form-control", placeholder: "Numero" %>
+  </div>
+
+  <div class="pb-3">
+    <%= form.number_field :posti, class: "form-control", placeholder: "Posti" %>
   </div>
 
   <div>
-    <%= form.label :posti, style: "display: block" %>
-    <%= form.number_field :posti %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-secondary mt-3" %>
   </div>
 <% end %>

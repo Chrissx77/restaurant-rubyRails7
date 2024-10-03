@@ -1,0 +1,5 @@
+<div class="nested-fields">
+  <%= f.input :course_id, collection: Course.pluck(:nome, :id), prompt: 'Seleziona una Portata' %>
+  <%= f.input :quantita %>
+  <%= link_to_remove_association "Rimuovi Portata", f, class: "btn btn-danger" %>
+</div>

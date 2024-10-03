@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_29_150358) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_03_093149) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,13 +21,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_29_150358) do
   end
 
   create_table "courses_orders", force: :cascade do |t|
-    t.bigint "orders_id", null: false
-    t.bigint "courses_id", null: false
+    t.bigint "order_id", null: false
+    t.bigint "course_id", null: false
     t.integer "quantita"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["courses_id"], name: "index_courses_orders_on_courses_id"
-    t.index ["orders_id"], name: "index_courses_orders_on_orders_id"
+    t.index ["course_id"], name: "index_courses_orders_on_course_id"
+    t.index ["order_id"], name: "index_courses_orders_on_order_id"
   end
 
   create_table "foods", force: :cascade do |t|
@@ -50,10 +50,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_29_150358) do
 
   create_table "orders", force: :cascade do |t|
     t.string "stato"
-    t.bigint "tables_id", null: false
+    t.bigint "table_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tables_id"], name: "index_orders_on_tables_id"
+    t.index ["table_id"], name: "index_orders_on_table_id"
   end
 
   create_table "tables", force: :cascade do |t|
@@ -63,9 +63,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_29_150358) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "courses_orders", "courses", column: "courses_id"
-  add_foreign_key "courses_orders", "orders", column: "orders_id"
+  add_foreign_key "courses_orders", "courses"
+  add_foreign_key "courses_orders", "orders"
   add_foreign_key "foods_courses", "courses"
   add_foreign_key "foods_courses", "foods"
-  add_foreign_key "orders", "tables", column: "tables_id"
+  add_foreign_key "orders", "tables"
 end

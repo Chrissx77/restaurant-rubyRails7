@@ -13,6 +13,9 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @tables = Table.all
+    @order.courses_orders.build
+
   end
 
   # GET /orders/1/edit
@@ -65,6 +68,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:stato, :tables_id)
+      params.require(:order).permit(:table_id,  courses_orders_attributes: [:id, :course_id, :quantita, :_destroy])
     end
 end

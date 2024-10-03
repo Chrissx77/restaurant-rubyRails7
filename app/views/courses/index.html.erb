@@ -1,8 +1,11 @@
-
 <% content_for :title, "Courses" %>
 
 <div class="mt-5">
   <h1>Portate</h1>
+
+  <div class="d-flex justify-content-center">
+    <%= link_to "Nuova Portata", new_course_path, class: "btn btn-dark" %>
+  </div>
 
   <div id="courses" class="my-5">
     <% @courses.each do |course| %>
@@ -14,8 +17,6 @@
   </div>
 </div>
 
-<div class="d-flex justify-content-center">
-  <%= link_to "Nuova Portata", new_course_path, class: "btn btn-dark" %>
-</div>
+
 
 

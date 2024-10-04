@@ -1,12 +1,12 @@
-<% content_for :title, "Editing food" %>
+<% content_for :title, "Editing Food" %>
 
-<h1>Crea Tavolo</h1>
+<div class="container my-5">
+  <h1 class="text-center">Modifica Tavolo</h1>
 
-<%= render "form", table: @table %>
+  <%= render "form", table: @table %>
 
-<br>
-
-<div>
-  <%= link_to "Mostra", @table, class:"btn btn-dark" %>
-  <%= link_to "Indietro", tables_path, class:"btn btn-dark" %>
+  <div class="mt-3 text-center">
+    <%= link_to "Mostra", @table, class: "btn btn-outline-primary" %>
+    <%= link_to "Indietro", tables_path, class: "btn btn-outline-secondary" %>
+  </div>
 </div>

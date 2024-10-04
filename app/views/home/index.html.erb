@@ -1,3 +1,75 @@
-<h1>BENVENUTI NELLA HOME!</h1>
+<% content_for :title, "Home" %>
 
+<div class="container text-center my-5">
+  <h1 class="display-4 text-primary mb-4" style="background: linear-gradient(to right, #FF7E5F, #FEB47B); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+    BENVENUTI NELLA HOME!
+  </h1>
+  <p class="lead text-muted">Gestisci il tuo ristorante in modo semplice ed efficace.</p>
 
+  <div class="my-4">
+  </div>
+
+  <h2 class="my-4">Le tue sezioni</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-3 mb-4">
+      <div class="card text-center shadow-sm" style="background-color: #DFF6E3;">
+        <div class="card-body">
+          <i class="fas fa-utensils fa-3x text-success"></i>
+          <h5 class="card-title">Ingredienti</h5>
+          <p class="card-text">Gestisci i tuoi ingredienti freschi e disponibili.</p>
+          <%= link_to "Vai agli Ingredienti", foods_path, class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="card text-center shadow-sm" style="background-color: #FFEDD8;">
+        <div class="card-body">
+          <i class="fas fa-table fa-3x text-warning"></i>
+          <h5 class="card-title">Tavoli</h5>
+          <p class="card-text">Organizza e gestisci i tavoli del tuo ristorante.</p>
+          <%= link_to "Vai ai Tavoli", tables_path, class: "btn btn-warning" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="card text-center shadow-sm" style="background-color: #FDE7E9;">
+        <div class="card-body">
+          <i class="fas fa-concierge-bell fa-3x text-danger"></i>
+          <h5 class="card-title">Portate</h5>
+          <p class="card-text">Crea e gestisci le portate del tuo menu.</p>
+          <%= link_to "Vai alle Portate", courses_path, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="card text-center shadow-sm" style="background-color: #D8E6F3;">
+        <div class="card-body">
+          <i class="fas fa-receipt fa-3x text-info"></i>
+          <h5 class="card-title">Ordini</h5>
+          <p class="card-text">Tieni traccia degli ordini dei tuoi clienti.</p>
+          <%= link_to "Vai agli Ordini", orders_path, class: "btn btn-info" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.3s;
+        border-radius: 15px;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        color: #2C3E50;
+    }
+</style>

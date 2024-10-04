@@ -1,11 +1,11 @@
 <% content_for :title, "New food" %>
 
-<h1>Aggiungi Ingrediente</h1>
+<div class="container my-5">
+  <h1>Aggiungi Ingrediente</h1>
 
-<%= render "form", food: @food %>
+  <%= render "form", food: @food %>
 
-<br>
-
-<div>
-  <%= link_to "Indietro", foods_path, class: "btn btn-dark" %>
+  <div class="mt-3">
+    <%= link_to "Indietro", foods_path, class: "btn btn-outline-dark" %>
+  </div>
 </div>

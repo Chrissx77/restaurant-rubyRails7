@@ -1,8 +1,7 @@
-<%= form_with(model: table) do |form| %>
+<%= form_with(model: table, local: true) do |form| %>
   <% if table.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(table.errors.count, "error") %> prohibited this table from being saved:</h2>
-
+    <div class="alert alert-danger">
+      <h2><%= pluralize(table.errors.count, "errore") %> non ha permesso il salvataggio:</h2>
       <ul>
         <% table.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,15 +10,15 @@
     </div>
   <% end %>
 
-  <div class="pb-3">
+  <div class="mb-3">
     <%= form.text_field :numero, class: "form-control", placeholder: "Numero" %>
   </div>
 
-  <div class="pb-3">
+  <div class="mb-3">
     <%= form.number_field :posti, class: "form-control", placeholder: "Posti" %>
   </div>
 
   <div>
-    <%= form.submit class: "btn btn-secondary mt-3", value: "Crea Tavolo" %>
+    <%= form.submit class: "btn btn-outline-primary mt-3", value: "Crea Tavolo" %>
   </div>
 <% end %>

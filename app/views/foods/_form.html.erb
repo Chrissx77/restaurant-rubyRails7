@@ -1,8 +1,7 @@
-<%= form_with(model: food) do |form| %>
+<%= form_with(model: food, local: true) do |form| %>
   <% if food.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
-
+    <div class="alert alert-danger">
+      <h2><%= pluralize(food.errors.count, "errore") %> non ha permesso il salvataggio:</h2>
       <ul>
         <% food.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,19 +10,19 @@
     </div>
   <% end %>
 
-  <div class="pb-3">
+  <div class="mb-3">
     <%= form.text_field :nome, class: "form-control", placeholder: "Nome" %>
   </div>
 
-  <div class="pb-3">
+  <div class="mb-3">
     <%= form.text_field :categoria, class: "form-control", placeholder: "Categoria" %>
   </div>
 
-  <div class="pb-3">
+  <div class="mb-3">
     <%= form.number_field :quantità, class: "form-control", placeholder: "Quantità" %>
   </div>
 
   <div>
-    <%= form.submit class: "btn btn-secondary mt-3", value: "Crea Ingrediente"%>
+    <%= form.submit class: "btn btn-outline-primary mt-3", value: "Crea Ingrediente" %>
   </div>
 <% end %>

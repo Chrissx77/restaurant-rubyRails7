@@ -5,4 +5,5 @@ class Course < ApplicationRecord
 
   has_many :courses_orders
   has_many :orders, through: :courses_orders
+
 end

@@ -70,4 +70,5 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:table_id,  courses_orders_attributes: [:id, :course_id, :quantita, :_destroy])
     end
+
 end

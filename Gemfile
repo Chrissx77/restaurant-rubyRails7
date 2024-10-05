@@ -58,6 +58,5 @@ group :test do
 end
 
 
-gem "cocoon", "~> 1.2"
-gem "foreman", github: "ddollar/foreman"
+gem 'cocoon', '~> 1.2.14'
 gem "simple_form", "~> 5.2"

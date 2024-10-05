@@ -1,24 +1,23 @@
-
-<%= simple_form_for(@order) do |f| %>
+<%= simple_form_for(@order, html: { class: "mt-4" }) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-group">
-    <%= f.input :table_id, collection: Table.pluck(:numero, :id), prompt: 'Seleziona un Tavolo' %>
+  <div class="form-group mb-4">
+    <%= f.input :table_id, collection: Table.pluck(:numero, :id), prompt: 'Seleziona un Tavolo', label: "Tavolo", input_html: { class: "form-select" } %>
   </div>
 
-  <h3>Portate</h3>
+  <h3 class="mt-4">Portate</h3>
 
   <div id="tasks">
     <%= f.simple_fields_for :courses_orders do |fc| %>
       <%= render 'orders/courses_order_fields', f: fc %>
     <% end %>
-    <div class="links">
-      <%= link_to_add_association "Aggiungi Portata", f, :courses_orders, class: "btn btn-secondary" %>
+    <div class="text-end">
+      <%= link_to_add_association "Aggiungi Portata", f, :courses_orders, class: "btn btn-outline-primary mt-3" %>
     </div>
   </div>
 
-  <div class="form-actions mt-3">
-    <%= f.button :submit, class: "btn btn-primary", value: "Crea Ordine" %>
+  <div class="form-actions text-center mt-4">
+    <%= f.button :submit, class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>

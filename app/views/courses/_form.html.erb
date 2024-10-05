@@ -1,23 +1,23 @@
-<%= simple_form_for(@course) do |f| %>
+<%= simple_form_for(@course, html: { class: "mt-4" }) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <div class="form-inputs">
-    <%= f.input :nome %>
+
+  <div class="form-group mb-4">
+    <%= f.input :nome, label: "Nome della Portata", input_html: { class: "form-control" } %>
   </div>
 
-    <h3>Ingrediente</h3>
+  <h3 class="mt-4">Ingredienti</h3>
 
-    <div id="tasks">
-      <%= f.simple_fields_for :foods_courses do |fc| %>
-        <%= render 'foods_course_fields', f: fc %>
-      <% end %>
-      <div class="links my-2">
-        <%= link_to_add_association "Aggiungi Ingrediente", f, :foods_courses , :class=> "btn btn-secondary"%>
-      </div>
+  <div id="tasks">
+    <%= f.simple_fields_for :foods_courses do |fc| %>
+      <%= render 'foods_course_fields', f: fc %>
+    <% end %>
+    <div class="text-end mt-3">
+      <%= link_to_add_association "Aggiungi Ingrediente", f, :foods_courses, class: "btn btn-outline-primary" %>
     </div>
-
-  <div class="form-actions mt-3">
-    <%= f.button :submit , :class=> "btn btn-secondary", value: "Crea Portata"%>
   </div>
 
+  <div class="form-actions text-center mt-4">
+    <%= f.button :submit, class: "btn btn-primary btn-lg", value: "Crea Portata" %>
+  </div>
 <% end %>

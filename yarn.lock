@@ -9,7 +9,14 @@
   dependencies:
     jquery "^3.3.1"
 
-jquery@^3.3.1:
+cocoon-js@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/cocoon-js/-/cocoon-js-0.0.5.tgz#2d269db2e3375014dbc43e4dda3bdd8d161b238b"
+  integrity sha512-1h51/2LDnZdyQehtIIA4eqCMSef4yFvUwXQF1XWRp12KSVLCXrvuGOsnoEm7OXviM7wgEiTf1nAkjbyws9i1EQ==
+  dependencies:
+    jquery "^3.2.1"
+
+jquery@^3.2.1, jquery@^3.3.1:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.7.1.tgz#083ef98927c9a6a74d05a6af02806566d16274de"
   integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==

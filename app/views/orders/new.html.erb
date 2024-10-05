@@ -1,9 +1,12 @@
-<% content_for :title, "New order" %>
+<% content_for :title, "Nuovo Ordine" %>
 
-<h1>Crea un Ordine</h1>
+<div class="container my-5">
+  <h1 class="display-4 text-center text-primary mb-4">Crea un Nuovo Ordine</h1>
 
-<%= render "form", order: @order %>
-
-<div>
-  <%= link_to "Indietro", orders_path %>
+  <div class="card shadow-sm p-4">
+    <%= render "form", order: @order %>
+    <div class="text-center mt-4">
+      <%= link_to "Indietro", orders_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
 </div>

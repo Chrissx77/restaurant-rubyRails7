@@ -5,9 +5,17 @@
     <h5 class="card-title">Ordine #<%= @order.id %></h5>
 
     <p class="card-text">
-      <strong>Stato:</strong> <%= @order.stato %><br>
-      <strong>Tavolo:</strong> <%= @order.table_id %>
+      <strong>Tavolo:</strong> <%= @order.table.numero %>
     </p>
+
+    <h6 class="mt-4">Portate:</h6>
+    <ul class="list-group list-group-flush">
+      <% @order.courses_orders.each do |courses_order| %>
+        <li class="list-group-item">
+          <strong><%= courses_order.course.nome %></strong> - Quantità: <%= courses_order.quantita %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 
   <div class="card-footer bg-transparent d-flex flex-wrap justify-content-start">

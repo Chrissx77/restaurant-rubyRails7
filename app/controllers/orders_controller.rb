@@ -26,14 +26,11 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: "Order was successfully created." }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+    if @order.save
+      redirect_to @order, notice: 'Ordine creato con successo.'
+    else
+      flash.now[:alert] = @order.errors.full_messages.to_sentence
+      render :new, status: :unprocessable_entity
     end
   end
 

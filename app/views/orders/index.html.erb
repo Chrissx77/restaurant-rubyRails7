@@ -1,16 +1,12 @@
-<p class="text-success"><%= notice %></p>
-
 <% content_for :title, "Orders" %>
 
 <div class="mt-5">
   <h1>Ordini</h1>
 
-  <!-- Bottone per creare un nuovo ordine, al centro della pagina -->
   <div class="d-flex justify-content-center mb-4">
     <%= link_to "Nuovo Ordine", new_order_path, class: "btn btn-dark" %>
   </div>
 
-  <!-- Elenco degli ordini, visualizzati in una griglia con cards -->
   <div id="orders" class="row row-cols-1 row-cols-md-3 g-4">
     <% @orders.each do |order| %>
       <div class="col">

@@ -3,17 +3,17 @@
 <div class="container my-5">
   <h1 class="text-center">Ingredienti</h1>
 
-  <div class="text-center mt-3">
+  <div class="text-center">
     <%= link_to "Nuovo Ingrediente", new_food_path, class: "btn btn-outline-success" %>
   </div>
 
-  <table class="table table-light table-striped table-hover rounded">
+  <table class="table table-light table-striped rounded mt-4">
     <thead>
     <tr>
       <th scope="col">Nome</th>
       <th scope="col">Categoria</th>
       <th scope="col">Quantità</th>
-      <th scope="col" class="text-center" colspan="3"></th>
+      <th scope="col" colspan="3" class="text-center"></th>
     </tr>
     </thead>
     <tbody>
@@ -35,6 +35,4 @@
     <% end %>
     </tbody>
   </table>
-
-
 </div>
